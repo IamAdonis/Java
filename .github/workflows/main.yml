@@ -32,5 +32,15 @@ jobs:
         with:
           ref: ${{ github.REF }}
           fetch-depth: 0
+          
+    ######## Setup JDK 11 ########
+      - name: set up JDK 11
+        id: setup_jdk
+        if: ${{ env.STACK == 'java' }}
+        uses: actions/setup-java@v2
+        continue-on-error: ${{ env.CONTINUE_ON_ERROR }}
+        with:
+          java-version: '11'
+          distribution: 'adopt'      
         
          
