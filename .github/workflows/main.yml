@@ -41,6 +41,17 @@ jobs:
         continue-on-error: ${{ env.CONTINUE_ON_ERROR }}
         with:
           java-version: '11'
-          distribution: 'adopt'      
+          distribution: 'adopt'   
+          
+   ####### Upload Artifact #######       
+          
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v2.2.4
+        with:
+          # Artifact name
+          name: artifact 
+          path: $GITHUB_WORKSPACE
+          # optional, default is artifact
+          # A file, directory or wildcard pattern that describes what to upload        
         
          
