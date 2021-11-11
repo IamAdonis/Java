@@ -29,3 +29,5 @@ jobs:
         with:
           ref: ${{ github.REF }}
           fetch-depth: 0
+        
+        echo: github.REF  
