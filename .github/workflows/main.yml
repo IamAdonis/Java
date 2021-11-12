@@ -41,7 +41,15 @@ jobs:
         continue-on-error: ${{ env.CONTINUE_ON_ERROR }}
         with:
           java-version: '11'
-          distribution: 'adopt'      
+          distribution: 'adopt'    
+          
+    ######## Build - Maven ########
+      - name: Build with Maven
+        id: build_maven
+        if: ${{ env.BUILD_TECH == 'java_maven' }}
+        run: mvn ${{ env.MVN_ARGS }}
+        continue-on-error: ${{ env.CONTINUE_ON_ERROR }}      
+          
           
     ############Upload Artifact ##############    
       - name: Upload a Build Artifact
